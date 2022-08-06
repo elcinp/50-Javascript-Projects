@@ -1,52 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
-
-*{
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&family=Roboto:wght@400;700&display=swap');
 
 /* using vh helps us for using body with full height and it is also useful for 
 responsive pages
 we also use visible hidden for texts in same classes. by this way only one  
 class text became visible default */
 
-body{
-    margin: 0;
-    height: 100vh;
-    font-family: 'Oswald',sans-serif;
-    color: aliceblue;
+
+*{
+    box-sizing: border-box;
 }
-#container{
-    height: 100vh;
-    display: flex;
+
+body{
+    font-family: 'Muli',sans-serif;
+    display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin:0;
 }
-.pic {
-    margin: 0.5%;
-    height: 90vh;
-    border-radius: 5vh;
-    min-width: 12vh;
-    opacity: 0.7;
-}
-.pic:hover{
-    opacity: 1;
-    cursor: pointer;
-}
-h3{
-    visibility: hidden;
-}
-.active{
-    min-width: 110vh;
-    height: 90vh;
-    background-size: cover;
-    border-radius: 5vh;
-    margin: 0.5%;
+.container{
     display: flex;
-    align-items: flex-end;
-    padding: 2vh;
-    letter-spacing: x-large;
-    opacity: 1;
+    width: 90vw;
 }
-.active h3{
-    visibility: visible;
+.panel{
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color:#fff;
+    cursor:pointer;
+    flex: 0.5;
+    margin: 10px;
+    position:relative;
+    transition: flex 0.7s ease-in
 }
+.panel h3{
+    font-size:24px;
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    margin: 0;
+    opacity: 0;
+}
+.panel.active{
+    flex:5;
+    border-radius: 50px;
+}
+.panel.active h3{
+    opacity:1;
+    transition:opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width:480px){
+    .container{
+        width:100vw;
+    }
+    .panel:nth-of-type(4),.panel:nth-of-type(5){
+        display:none;
+    }
+}
+
+
